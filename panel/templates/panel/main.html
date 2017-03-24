@@ -1,0 +1,40 @@
+{% extends "panel/base.html" %}
+{% block title %} - Inicio{%endblock title%}
+
+{% block form%}
+<br/>
+<span class="help-block col-md-10 "> Seleccione el parámetro que desea visualizar, así como la técnica de análisis con la que se obtuvieron los grupos.</span>	
+<br><hr>
+<form id='form-configure' class="form-inline col-md-12" role="form" action="/panel/configure/" method="POST">{% csrf_token %}
+	<div class="form-group col-md-3">
+		<label class="">Parámetro:</label>
+		<select id="slc-parametro" name="parametro" class="form-control input-small">
+			<option value="VRTG">VRTG</option>
+			<option value="AOAC">AOAC</option>
+			<option value="FLAP">FLAP</option>
+			<option value="PTCH">PTCH</option>
+			<option value="ROLL">ROLL</option>
+		</select>
+	</div>
+	
+	<div class="form-group col-md-3">
+		<label class="">Técnica:</label>
+		<select id="slc-algoritmo" name="algoritmo" class="form-control input-small">
+			<option value="K-means">K-means</option>
+			<option value="SOM">SOM</option>
+			<option value="DBSCAN">DBSCAN</option>
+		</select>
+	</div>
+	<div class="col-md-3">
+		<button class="btn grey" type="reset">Cancelar</button>
+		<button id="btn-filter" class="btn green" type="submit">Enviar</button>
+	</div>
+</form>
+<br/><br/><hr>
+{% endblock form%}
+
+	
+{% block content %}
+
+{% endblock content%}
+

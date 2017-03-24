@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="Detección de anomalías en datos de vuelo">
+		<meta name="author" content="Ing. Yolanda Mauri Pérez">
+		<title>Viewer {% block title %} {%endblock title%}</title>
+		{% load static %}
+		<link rel="stylesheet" type="text/css" href="{% get_static_prefix %}visor/css/bootstrap.css">
+		<link rel="stylesheet" type="text/css" href="{% get_static_prefix %}visor/css/docs.css">
+	</head>
+	<body data-twttr-rendered="true">
+		<header class="navbar navbar-inverse navbar-fixed-top bs-docs-nav" role="banner">
+			<div class="container">
+		    <div class="navbar-header">
+		      <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+		        <span class="sr-only">Menú</span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		      </button>
+		      <a href="#" class="navbar-brand">Viewer</a>
+		    </div>
+		    <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+		      <ul class="nav navbar-nav">
+		        <li class="active">
+		          <a href="#">Inicio</a>
+		        </li>
+		      </ul>
+		      <ul class="nav navbar-nav navbar-right">
+		        <li>
+		          <a href="#">Acerca de</a>
+		        </li>
+		      </ul>
+		    </nav>
+		  </div>
+		</header>
+		<div class="container bs-docs-container">
+			<div class="row">
+				Hola Mundo
+			{% block content %} {% endblock content %}
+			</div>
+		</div>
+    <footer class="bs-footer" role="contentinfo">
+      <div class="container">
+
+        <p>Desarrollado por:<a href="http://twitter.com/YolandaMauri" target="_blank">Yolanda Mauri Pérez</a>.</p>
+        <p>Herramienta para uso académico exclusivo <a href="http://www.icimaf.cu" target="_blank">ICIMAF</a>, Cuba.</p>
+        <ul class="footer-links">
+          <li>Versión 1.0</li>
+          <li class="muted">·</li>
+          <li>2017</li>
+          <li class="muted">·</li>
+          <li><a href="https://github.com/ymauri/visor">Releases</a></li>
+        </ul>
+      </div>
+    </footer>
+    <script type="text/javascript" href="{% get_static_prefix %}visor/js/bootstrap.js"></script>
+	<script type="text/javascript" href="{% get_static_prefix %}visor/js/jquery.min.js"></script>
+	</body>
+</html>

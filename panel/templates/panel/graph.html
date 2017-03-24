@@ -1,0 +1,104 @@
+{% extends "panel/main.html" %}
+{% block title %} - {{parametro}} {% endblock title %}
+
+
+{% block content %}
+<input id="parametro" hidden value="{{parametro}}" />
+<input id="algoritmo" hidden value="{{algoritmo}}" />
+
+<div id="main-viewer">
+	<!--VRTG-->
+	<div id='viewer-vrtg' class="portlet">
+		<div class="portlet-title">
+			<div class="caption">
+				<i class=""></i>{{parametro}} - Despegue
+			</div>
+			<div class="tools">
+				<a id="link_label_despegue" data-toggle="modal" href="#asign_label_despegue" class="yellow">Asignar etiquetas </a>
+				<a class="collapse" href="javascript:;">
+				</a>
+				
+			</div>	
+		</div>
+		<div class="portlet-body">
+			<div class="chart" id="graph_despegue" style="padding: 0px; position: relative;">
+			</div>
+		</div>
+	</div>
+	<div id="legend-despegue" class="col-md-12">
+	</div>
+	
+	<br/><br/><br/>
+	<div id='viewer-vrtg' class="portlet">
+		<div class="portlet-title">
+			<div class="caption">
+				<i class=""></i>{{parametro}} - Aterrizaje				
+			</div>
+			<div class="tools">
+				<a id="link_label_aterrizaje" data-toggle="modal" href="#asign_label_aterrizaje" class="yellow">Asignar etiquetas</a>
+				<a class="collapse" href="javascript:;">
+				</a>
+				
+			</div>	
+		</div>
+		<div class="portlet-body">
+			<div class="chart" id="graph_aterrizaje" style="padding: 0px; position: relative;">
+			</div>
+		</div>
+	</div>
+	<div id="legend-aterrizaje" class="col-md-12"></div>
+	<br/><br/><br/>
+</div>
+
+<div class="modal fade" id="asign_label_despegue" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button aria-hidden="true" data-dismiss="modal" class="close" type="button"></button>
+				<h4 class="modal-title">Asignar etiquetas a los grupos</h4>
+			</div>
+			<div class="modal-body">
+				<form id='form-labels_despegue' class="form-horizontal" role="form" action="/panel/asign_label/" method="POST">{% csrf_token %}
+					
+					<input id="fase" name="fase" hidden value="" />
+					<input id="parametro" name="parametro" hidden value="{{parametro}}" />
+					<input id="algoritmo" name="algoritmo" hidden value="{{algoritmo}}" />				
+				</form>						
+			</div>			
+			<div class="modal-footer">
+				<button aria-hidden="true" data-dismiss="modal" class="btn default">Cerrar</button>
+				<button id="btn_asign_labels_despegue" data-dismiss="modal" class="btn green">Aceptar</button>
+			</div>
+		</div>		
+		<!-- /.modal-content -->
+	</div>
+	<!-- /.modal-dialog -->
+</div>
+
+<div class="modal fade" id="asign_label_aterrizaje" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button aria-hidden="true" data-dismiss="modal" class="close" type="button"></button>
+				<h4 class="modal-title">Asignar etiquetas a los grupos</h4>
+			</div>
+			<div class="modal-body">
+				<form id='form-labels_aterrizaje' class="form-horizontal" role="form" action="/panel/asign_label/" method="POST">{% csrf_token %}
+					
+					<input id="fase" name="fase" hidden value="" />
+					<input id="parametro" name="parametro" hidden value="{{parametro}}" />
+					<input id="algoritmo" name="algoritmo" hidden value="{{algoritmo}}" />				
+				</form>							
+			</div>			
+			<div class="modal-footer">
+				<button aria-hidden="true" data-dismiss="modal" class="btn default">Cerrar</button>
+				<button id="btn_asign_labels_aterrizaje" data-dismiss="modal" class="btn green">Aceptar</button>
+			</div>
+		</div>		
+		<!-- /.modal-content -->
+	</div>
+	<!-- /.modal-dialog -->
+</div>
+
+
+{% endblock content%}

@@ -1,0 +1,175 @@
+{% extends "panel/base.html" %}
+{% block title %} - {{vuelo}}{%endblock title%}
+
+{% block content %}
+<input id="vuelo" hidden value="{{vuelo}}" />
+<div id="detalle_vuelo" class="col-md-12">
+	<div id='parametro_VRTG_despegue' class="portlet col-md-4">
+		<div class="portlet-title">
+			<div class="caption">
+				<i class=""></i>VRTG - Despegue
+			</div>
+			<div class="tools">				
+								
+			</div>	
+		</div>
+		<div class="portlet-body">
+			<div class="chart" id="graph_VRTG_despegue" style="padding: 0px; position: relative;">
+			</div>
+		</div>
+	</div>
+	<div id='parametro_AOAC_despegue' class="portlet col-md-4">
+		<div class="portlet-title">
+			<div class="caption">
+				<i class=""></i>AOAC - Despegue
+			</div>
+			<div class="tools">				
+							
+			</div>	
+		</div>
+		<div class="portlet-body">
+			<div class="chart" id="graph_AOAC_despegue" style="padding: 0px; position: relative;">
+			</div>
+		</div>
+	</div>
+	<div id='parametro_PTCH_despegue' class="portlet col-md-4">
+		<div class="portlet-title">
+			<div class="caption">
+				<i class=""></i>PTCH - Despegue
+			</div>
+			<div class="tools">				
+								
+			</div>	
+		</div>
+		<div class="portlet-body">
+			<div class="chart" id="graph_PTCH_despegue" style="padding: 0px; position: relative;">
+			</div>
+		</div>
+	</div>
+	<div id='parametro_FLAP_despegue' class="portlet col-md-4">
+		<div class="portlet-title">
+			<div class="caption">
+				<i class=""></i>FLAP - Despegue
+			</div>
+			<div class="tools">				
+								
+			</div>	
+		</div>
+		<div class="portlet-body">
+			<div class="chart" id="graph_FLAP_despegue" style="padding: 0px; position: relative;">
+			</div>
+		</div>
+	</div>
+	<div id='parametro_ROLL_despegue' class="portlet col-md-4">
+		<div class="portlet-title">
+			<div class="caption">
+				<i class=""></i>ROLL - Despegue
+			</div>
+			<div class="tools">				
+								
+			</div>	
+		</div>
+		<div class="portlet-body">
+			<div class="chart" id="graph_ROLL_despegue" style="padding: 0px; position: relative;">
+			</div>
+		</div>
+	</div>
+	<!--iterar por cada -->
+</div>
+<br/><br/>
+<br/>
+<div id="detalle_vuelo" class="col-md-12">
+	<div id='parametro_VRTG_aterrizaje' class="portlet col-md-4">
+		<div class="portlet-title">
+			<div class="caption">
+				<i class=""></i>VRTG - Aterrizaje
+			</div>
+			<div class="tools">				
+								
+			</div>	
+		</div>
+		<div class="portlet-body">
+			<div class="chart" id="graph_VRTG_aterrizaje" style="padding: 0px; position: relative;">
+			</div>
+		</div>
+	</div>
+	<div id='parametro_AOAC_aterrizaje' class="portlet col-md-4">
+		<div class="portlet-title">
+			<div class="caption">
+				<i class=""></i>AOAC - Aterrizaje
+			</div>
+			<div class="tools">				
+							
+			</div>	
+		</div>
+		<div class="portlet-body">
+			<div class="chart" id="graph_AOAC_aterrizaje" style="padding: 0px; position: relative;">
+			</div>
+		</div>
+	</div>
+	<div id='parametro_PTCH_aterrizaje' class="portlet col-md-4">
+		<div class="portlet-title">
+			<div class="caption">
+				<i class=""></i>PTCH - Aterrizaje
+			</div>
+			<div class="tools">				
+								
+			</div>	
+		</div>
+		<div class="portlet-body">
+			<div class="chart" id="graph_PTCH_aterrizaje" style="padding: 0px; position: relative;">
+			</div>
+		</div>
+	</div>
+	<div id='parametro_FLAP_aterrizaje' class="portlet col-md-4">
+		<div class="portlet-title">
+			<div class="caption">
+				<i class=""></i>FLAP - Aterrizaje
+			</div>
+			<div class="tools">				
+								
+			</div>	
+		</div>
+		<div class="portlet-body">
+			<div class="chart" id="graph_FLAP_aterrizaje" style="padding: 0px; position: relative;">
+			</div>
+		</div>
+	</div>
+	<div id='parametro_ROLL_aterrizaje' class="portlet col-md-4">
+		<div class="portlet-title">
+			<div class="caption">
+				<i class=""></i>ROLL - Aterrizaje
+			</div>
+			<div class="tools">				
+								
+			</div>	
+		</div>
+		<div class="portlet-body">
+			<div class="chart" id="graph_ROLL_aterrizaje" style="padding: 0px; position: relative;">
+			</div>
+		</div>
+	</div>
+	<!--iterar por cada -->
+</div>
+<br/><br/>
+<br/>
+<table class="table table-striped table-hover">
+	<thead>
+	<tr>
+		<th></th>					
+		<th>K-means</th>
+		<th>SOM</th>
+		<th>DBSCAN</th>
+	</tr>
+	</thead>
+	<tbody>
+		<!--por cada parámetro crear una fila-->
+			<tr>
+				<td>parámetro</td>
+				<td class="{% if current.VRTG == 'Normal'%} success {%endif%} {%if current.VRTG == 'Eventual' %}  warning {%endif%} {%if current.VRTG == 'Anómalo' %} danger {%endif%}">
+					 etiqueta
+				</td>							
+			</tr>
+	</tbody>
+</table>
+{% endblock content%}
